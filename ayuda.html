@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .typewriter h1 {
+        overflow: hidden; /* Oculta el texto */
+        border-right: .15em solid orange; /* Crea un borde simulando el efecto de escritura */
+        white-space: nowrap; /* Evita saltos de línea */
+        margin: 0 auto; /* Centra el texto */
+        letter-spacing: .15em; /* Espaciado entre letras */
+        animation:
+          typing 3.5s steps(30, end),
+          blink-caret .75s step-end infinite;
+        animation-iteration-count: infinite; /* Hace que la animación se repita en bucle */
+      }
+      .ayuda{
+          width: 500px;
+          height: 15px;
+          background-color: brown;
+          margin: 0 auto;
+      }
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 500px }
+      }
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="typewriter">
+      <h1 id="text">Hi there! I'm Josué</h1>
+    </div>
+    <div class="ayuda"></div>
+    <script>
+        // Array con los textos que deseas mostrar
+        let texts = ["Hi there! I'm Josué", "¡Hola! Mi nombre es Josué"];
+        // Obtener el elemento h1 del HTML
+        let textElement = document.getElementById("text");
+        // Variable que indica el índice del texto actual
+        let index = 0;
+        // Función que cambia el texto
+        function changeText() {
+          // Asignar el texto actual al elemento h1
+          textElement.innerHTML = texts[index];
+          // Incrementar el índice
+          index++;
+          // Si el índice es mayor o igual a la longitud del array, resetear el índice a cero
+          if (index >= texts.length) {
+            index = 0;
+          }
+        }        
+            setInterval(changeText, 1000);
+      </script>
+  </body>
+</html>
